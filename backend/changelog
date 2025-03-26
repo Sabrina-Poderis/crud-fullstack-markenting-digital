@@ -1,0 +1,6 @@
+# Changelog
+
+## 1.0.0
+> Iniciar a aplicação backend
+- Criando a aplicação principal com typescript e express
+- Configuração do docker file

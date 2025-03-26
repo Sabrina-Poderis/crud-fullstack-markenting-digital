@@ -1,0 +1,31 @@
+{
+  "name": "fullstack-markenting-digital-backend",
+  "version": "1.0.0",
+  "description": "Sistema backend para gerenciar usuários e projetos de clientes de marketing digital via API REST.",
+  "main": "srv/server.ts",
+  "keywords": ["node_v18", "typescript","express"],
+  "author": "Sabrina Poderis <sabrina.poderis@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node src/server.ts",
+    "docker:build": "docker build -t backend .",
+    "docker:start": "docker run -p 5000:5000 backend",
+    "build": "tsc",
+    "start:prod": "node dist/server.js"
+  },
+
+  "dependencies": {
+    "cors": "^2.8",
+    "dotenv": "^16.4",
+    "express": "^4.21"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0",
+    "@types/node": "^22.13",
+    "ts-node": "^10.9",
+    "typescript": "^5.8"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x"
+  }
+}

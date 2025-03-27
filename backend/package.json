@@ -1,6 +1,6 @@
 {
   "name": "fullstack-markenting-digital-backend",
-  "version": "1.0.1",
+  "version": "1.0.8",
   "description": "Sistema backend para gerenciar usuários e projetos de clientes de marketing digital via API REST.",
   "main": "srv/server.ts",
   "keywords": [
@@ -18,20 +18,27 @@
     "start:prod": "node dist/server.js"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "cors": "^2.8",
     "dotenv": "^16.4.7",
     "express": "^4.21",
-    "knex": "^3.1.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.14.1",
-    "pg-hstore": "^2.3.4"
+    "pg-hstore": "^2.3.4",
+    "reflect-metadata": "^0.2.2",
+    "sequelize": "^6.37.6",
+    "sequelize-typescript": "^2.1.6"
   },
   "devDependencies": {
     "@types/cors": "^2.8",
     "@types/express": "^5.0",
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.13",
     "@types/pg": "^8.11.11",
+    "@types/sequelize": "^4.28.20",
     "ts-node": "^10.9",
-    "typescript": "^5.8"
+    "typescript": "^5.8.2"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x"

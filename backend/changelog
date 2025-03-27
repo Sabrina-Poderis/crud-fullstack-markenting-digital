@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.0.8
+> Fix: Ajuste no retorno assíncrono do token na rota do login
+
+## 1.0.7
+> Fix: Ajuste no Sequelize para reconhecer a Model
+
+## 1.0.6
+> Fix: Incluindo a rota de login no routes
+
+## 1.0.5
+> Criando o `authMiddleware`
+
+## 1.0.4
+> Criando a rota de login
+
+## 1.0.3
+> Criando a rota de register
+
+## 1.0.2
+> Migrando do ORM de Knex para Sequelize 
+
+- Criando User model
+
 ## 1.0.1
 > Incluindo o banco de dados postgree
 

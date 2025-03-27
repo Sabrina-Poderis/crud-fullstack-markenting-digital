@@ -1,17 +1,18 @@
+import "reflect-metadata";
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-import db from "./config/database"; // Se estiver usando Knex
 import env from "./config/env";
-dotenv.config();
+import sequelize from "./config/sequelize";
+import UserRoutes from "./routes/UserRoutes";
 
-const PORT = env.PORT
+const PORT = env.PORT;
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/user", UserRoutes);
 
-app.get("/healthCheck", async (req, res) => {
+app.get("/healthCheck", async (_req, res) => {
   try {
     res.json({ status: "ok", db: "connected" });
   } catch (error) {
@@ -19,7 +20,12 @@ app.get("/healthCheck", async (req, res) => {
   }
 });
 
-app.listen(PORT, async () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
-
-});
+sequelize
+  .sync()
+  .then(() => {
+    console.log("Banco de dados sincronizado com sucesso!");
+    app.listen(PORT, async () => {
+      console.log(`Servidor rodando na porta ${PORT}`);
+    });
+  })
+  .catch((error) => console.error("Erro ao conectar ao banco:", error));

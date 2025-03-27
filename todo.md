@@ -20,8 +20,8 @@ Criar uma aplicação full-stack simples com **Express.js** no back-end e **Vue.
 - [x] Fornecer um **Dockerfile** funcional para o ambiente do back-end.
 
 #### Melhorias
-- [ ] Transformar os `services` em `repositories`, e passar as regras de negócio do `controller` para `services`
-- [ ] Migrar as tipagens das requisições para a pasta `ts`
+- [x] Transformar os `services` em `repositories`, e passar as regras de negócio do `controller` para `services`
+- [x] Migrar as tipagens das requisições para a pasta `ts`
 - [ ] Melhorar a forma que é feito o validator da `Request`
 - [ ] Incluir testes unitários
 - [ ] Colocar doc do backend dentro do projeto ou um swagger

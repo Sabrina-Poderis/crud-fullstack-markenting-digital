@@ -70,7 +70,7 @@ export default class UserController {
 
       if (isPasswordValid) {
         res.status(200).json({
-          token: this.userService.generateToken(user),
+          token: await this.userService.generateToken(user),
         });
         return;
       } else {

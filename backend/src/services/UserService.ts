@@ -30,7 +30,7 @@ export default class UserService {
   }
 
   async generateToken(user: UserInterface) {
-    return jwt.sign({ id: user.id, email: user.email }, env.JWT_SECRET_KEY, {
+    return await jwt.sign({ id: user.id, email: user.email }, env.JWT_SECRET_KEY, {
       expiresIn: "1h",
     });
   }

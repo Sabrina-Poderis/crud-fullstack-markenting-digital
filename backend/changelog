@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.8
+> Fix: Ajuste no retorno assíncrono do token na rota do login
+
 ## 1.0.7
 > Fix: Ajuste no Sequelize para reconhecer a Model
 

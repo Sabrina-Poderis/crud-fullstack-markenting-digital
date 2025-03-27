@@ -1,4 +1,5 @@
-import { Table, Column, Model, DataType } from "sequelize-typescript";
+import { Table, Column, Model, DataType, HasMany } from "sequelize-typescript";
+import { Project } from "./Project";
 
 @Table({ tableName: "client", timestamps: true, paranoid: true })
 export class Client extends Model {
@@ -19,4 +20,7 @@ export class Client extends Model {
 
   @Column({ type: DataType.DATE, allowNull: true })
   deletedAt!: string;
+
+  @HasMany(() => Project)
+  projects!: Project[];
 }

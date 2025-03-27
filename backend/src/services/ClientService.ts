@@ -1,4 +1,5 @@
 import { Client } from "../models/Client";
+import { Project } from "../models/Project";
 
 type CreateClientRequest = {
   name: string;
@@ -22,7 +23,10 @@ export default class ClientService {
   }
 
   async findById(id: number) {
-    return await Client.findOne({ where: { id, deletedAt: null } });
+    return await Client.findOne({
+      where: { id, deletedAt: null },
+      include: [{ model: Project }],
+    });
   }
 
   async findByEmail(email: string) {
@@ -33,6 +37,7 @@ export default class ClientService {
     const client = await this.findById(id)
     
     if(client){
+      await Project.update({ deletedAt: new Date() }, { where: { clientId: id } });
       await client.destroy();
       return true
     }

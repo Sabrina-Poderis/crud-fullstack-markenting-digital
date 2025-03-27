@@ -12,12 +12,20 @@ Criar uma aplicação full-stack simples com **Express.js** no back-end e **Vue.
 
 - [x] Criar uma API REST utilizando **Express.js**.
 - [x] Implementar um sistema de **autenticação de usuários** usando **JWT**.
-- [ ] Criar um sistema de **gerenciamento de projetos**:
-    - [ ] CRUD básico de projetos (criação, leitura, atualização e exclusão).
-    - [ ] Associações de projetos a clientes.
+- [x] Criar um sistema de **gerenciamento de projetos**:
+    - [x] CRUD básico de projetos (criação, leitura, atualização e exclusão).
+    - [x] Associações de projetos a clientes.
 - [x] Criar **endpoints** separados para usuários e projetos.
 - [x] A API deve seguir boas práticas, incluindo separação de responsabilidades e uso de middlewares.
 - [x] Fornecer um **Dockerfile** funcional para o ambiente do back-end.
+
+#### Melhorias
+- [ ] Transformar os `services` em `repositories`, e passar as regras de negócio do `controller` para `services`
+- [ ] Migrar as tipagens das requisições para a pasta `ts`
+- [ ] Melhorar a forma que é feito o validator da `Request`
+- [ ] Incluir testes unitários
+- [ ] Colocar doc do backend dentro do projeto ou um swagger
+- [ ] Incluir o arquivo do postman
 
 ### **Front-end (Vue.js)**
 

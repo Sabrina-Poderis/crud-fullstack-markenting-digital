@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
-import ResponseMessages from "../ts/enum/ResponseMessages";
-import ClientService from "../services/ClientService";
 import validateCreateClientBody from "../schema/validateCreateClientBody";
 import validateGetId from "../schema/validateGetId";
+import ClientService from "../services/ClientService";
 
 export default class UserController {
   private clientService: ClientService;
@@ -12,163 +11,79 @@ export default class UserController {
   }
 
   async create(req: Request, res: Response): Promise<void> {
-    try {
-      const { name, email, phone, company } = req.body;
-
-      const resultValidate = validateCreateClientBody(req.body);
-      if (resultValidate.hasError) {
-        res.status(400).json({ message: resultValidate.message });
-        return;
-      }
-
-      if (await this.clientService.findByEmail(email)) {
-        res.status(400).json({ message: ResponseMessages.CLIENT_ALREADY_EXISTS });
-        return;
-      }
-
-      const user = await this.clientService.create({
-        name,
-        email,
-        phone,
-        company
-      });
-
-      if (user) {
-        res.status(201).json({
-          message: ResponseMessages.CLIENT_CREATED,
-          user,
-        });
-        return;
-      }
-      res.status(500).json({
-        message: ResponseMessages.INTERNAL_SERVER_ERROR,
-      });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({
-        message: ResponseMessages.INTERNAL_SERVER_ERROR,
-      });
+    const bodyValidated = validateCreateClientBody(req.body);
+    if (bodyValidated.error) {
+      res.status(400).json({ message: bodyValidated.message });
+      return;
     }
+
+    const result = await this.clientService.create(req.body);
+    res.status(result.status).json({
+      message: result.message,
+      data: result?.data || undefined,
+    });
   }
 
   async update(req: Request, res: Response): Promise<void> {
-    try {
-      const { name, phone, company } = req.body;
-      const { id } = req.query;
+    const { id } = req.query;
 
-      const resultValidate = validateCreateClientBody(req.body);
-      const resultValidateId = validateGetId(req.query);
-      
-      if (resultValidate.hasError) {
-        res.status(400).json({ message: resultValidate.message });
-        return;
-      }
+    const bodyValidated = validateCreateClientBody(req.body);
+    const validatedIdQuery = validateGetId(req.query);
 
-      if (resultValidateId.hasError) {
-        res.status(400).json({ message: resultValidateId.message });
-        return;
-      }
-
-      const client = await this.clientService.findById(Number(id))
-
-      if (!client) {
-        res.status(400).json({ message: ResponseMessages.CLIENT_NOT_FOUNDED });
-        return;
-      }
-
-      const user = await this.clientService.update(Number(id), {
-        name,
-        phone,
-        company
-      });
-
-      if (user) {
-        res.status(201).json({
-          message: ResponseMessages.CLIENT_UPDATED,
-          user,
-        });
-        return;
-      }
-      res.status(500).json({
-        message: ResponseMessages.INTERNAL_SERVER_ERROR,
-      });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({
-        message: ResponseMessages.INTERNAL_SERVER_ERROR,
-      });
+    if (bodyValidated.error) {
+      res.status(400).json({ message: bodyValidated.message });
+      return;
     }
+
+    if (validatedIdQuery.error) {
+      res.status(400).json({ message: validatedIdQuery.message });
+      return;
+    }
+
+    const result = await this.clientService.update(Number(id), req.body);
+    res.status(result.status).json({
+      message: result.message,
+      data: result?.data || undefined,
+    });
   }
 
   async delete(req: Request, res: Response): Promise<void> {
-    try {
-      const { id } = req.query;
+    const { id } = req.query;
 
-      const resultValidateId = validateGetId(req.query);
-      if (resultValidateId.hasError) {
-        res.status(400).json({ message: resultValidateId.message });
-        return;
-      }
-
-      const deleted = await this.clientService.delete(Number(id))
-
-      if (!deleted) {
-        res.status(400).json({ message: ResponseMessages.CLIENT_NOT_FOUNDED });
-        return;
-      }
-
-      res.status(201).json({
-        message: ResponseMessages.CLIENT_DELETED,
-      });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({
-        message: ResponseMessages.INTERNAL_SERVER_ERROR,
-      });
+    const validatedIdQuery = validateGetId(req.query);
+    if (validatedIdQuery.error) {
+      res.status(400).json({ message: validatedIdQuery.message });
+      return;
     }
+
+    const result = await this.clientService.delete(Number(id));
+    res.status(result.status).json({
+      message: result.message,
+      data: result?.data || undefined,
+    });
   }
 
   async findOne(req: Request, res: Response): Promise<void> {
-    try {
-      const { id } = req.query;
+    const { id } = req.query;
 
-      const resultValidateId = validateGetId(req.query);
-      if (resultValidateId.hasError) {
-        res.status(400).json({ message: resultValidateId.message });
-        return;
-      }
-
-      const client = await this.clientService.findById(Number(id));
-
-      if (!client) {
-        res.status(400).json({ message: ResponseMessages.CLIENT_NOT_FOUNDED });
-        return;
-      }
-
-      res.status(200).json({ client });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({
-        message: ResponseMessages.INTERNAL_SERVER_ERROR,
-      });
+    const validatedIdQuery = validateGetId(req.query);
+    if (validatedIdQuery.error) {
+      res.status(400).json({ message: validatedIdQuery.message });
+      return;
     }
+
+    const result = await this.clientService.findById(Number(id));
+    res.status(result.status).json({
+      message: result.message,
+      data: result?.data || undefined,
+    });
   }
 
-  async find(_req: Request, res: Response): Promise<void> {
-    try {
-      const clients = await this.clientService.find();
-
-      if (!clients) {
-        res.status(400).json({ message: ResponseMessages.CLIENTS_NOT_FOUNDED });
-        return;
-      }
-
-      res.status(200).json({ clients });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({
-        message: ResponseMessages.INTERNAL_SERVER_ERROR,
-      });
-    }
+  async findAll(_req: Request, res: Response): Promise<void> {
+    const result = await this.clientService.findAll();
+    res.status(result.status).json({
+      message: result.message,
+      data: result?.data || undefined,
+    });
   }
 }

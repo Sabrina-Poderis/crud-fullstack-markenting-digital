@@ -1,0 +1,6 @@
+# Changelog
+
+## 1.0.0
+> Iniciar a aplicação frontend
+- Criando a aplicação principal com typescript e vue
+- Configuração do docker file

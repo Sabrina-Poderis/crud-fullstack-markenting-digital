@@ -1,6 +1,6 @@
 {
   "name": "fullstack-markenting-digital-backend",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Sistema backend para gerenciar usuários e projetos de clientes de marketing digital via API REST.",
   "main": "srv/server.ts",
   "keywords": [
@@ -18,9 +18,12 @@
     "start:prod": "node dist/server.js"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "cors": "^2.8",
     "dotenv": "^16.4.7",
     "express": "^4.21",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.14.1",
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.2.2",

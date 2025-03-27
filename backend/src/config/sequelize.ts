@@ -1,6 +1,7 @@
 import { Dialect } from 'sequelize';
 import { Sequelize } from 'sequelize-typescript';
 import env from './env';
+import { User } from '../models/User';
 
 const databaseConfig = {
   username: env.DB_USER,
@@ -11,7 +12,7 @@ const databaseConfig = {
   logging: true,
   dialectOptions: {
     ssl: {
-      require: true,
+      require: false,
 
     },
     rejectUnauthorized: false,
@@ -20,7 +21,7 @@ const databaseConfig = {
 
 const sequelize = new Sequelize({
   ...databaseConfig,
-  models: [__dirname + '/models'],
+  models: [User],
 });
 
 export default sequelize

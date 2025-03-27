@@ -1,38 +1,16 @@
-import { Model, DataType } from 'sequelize-typescript';
-import sequelize from '../config/sequelize';
+import { Table, Column, Model, DataType } from "sequelize-typescript";
 
-class User extends Model {
+@Table({ tableName: "users", timestamps: false })
+export class User extends Model {
+  @Column({ type: DataType.INTEGER, primaryKey: true, autoIncrement: true })
   id!: number;
+
+  @Column({ type: DataType.STRING, allowNull: false })
   name!: string;
+
+  @Column({ type: DataType.STRING, allowNull: false, unique: true })
   email!: string;
+
+  @Column({ type: DataType.STRING, allowNull: false })
   password!: string;
 }
-
-User.init(
-  {
-    id: {
-      type: DataType.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    name: {
-      type: DataType.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: DataType.STRING,
-      allowNull: false,
-      unique: true,
-    },
-    password: {
-      type: DataType.STRING,
-      allowNull: false,
-    },
-  },
-  {
-    sequelize,
-    tableName: 'users',
-  }
-);
-
-export { User };

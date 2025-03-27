@@ -4,6 +4,7 @@ import cors from "cors";
 import env from "./config/env";
 import sequelize from "./config/sequelize";
 import UserRoutes from "./routes/UserRoutes";
+import ClientRoutes from "./routes/ClientRoutes";
 
 const PORT = env.PORT;
 const app = express();
@@ -11,6 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/user", UserRoutes);
+app.use("/clients", ClientRoutes);
 
 app.get("/healthCheck", async (_req, res) => {
   try {

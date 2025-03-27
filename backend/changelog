@@ -1,8 +1,10 @@
 # Changelog
 
+## 1.0.4
+> Criando a rota de login
+
 ## 1.0.3
 > Criando a rota de register
-
 
 ## 1.0.2
 > Migrando do ORM de Knex para Sequelize 

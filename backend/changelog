@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.9
+> Criado o módulo `Clients`
+
 ## 1.0.8
 > Fix: Ajuste no retorno assíncrono do token na rota do login
 

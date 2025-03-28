@@ -1,27 +1,18 @@
 version: '3.8'
 
 services:
-  backend:
-    build: ./backend
+  app:
+    build: .
     ports:
-      - "5000:5000"
+      - "5000:5000"  # Backend
+      - "8080:80"    # Frontend
     environment:
       - NODE_ENV=${NODE_ENV}
-      - PORT=${BACKEND_PORT}
+      - BACKEND_PORT=${BACKEND_PORT}
+      - FRONTEND_PORT=${FRONTEND_PORT}
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
-    depends_on:
-      - frontend
-
-  frontend:
-    build: ./frontend
-    ports:
-      - "8080:80"
-    environment:
-      - NODE_ENV=${NODE_ENV}
-      - PORT=${FRONTEND_PORT}
       - VITE_API_URL=${VITE_API_URL}
-

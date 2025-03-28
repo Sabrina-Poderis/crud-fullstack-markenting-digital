@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1
+> Páginas de Usuários
+- Criar páginas de login e cadastro.
+- Criar um serviço para autenticação via API (`/user/register` e `/user/login`).
+- Implementar armazenamento de token JWT no localStorage.
+- Criar middleware para redirecionamento baseado na autenticação.
+- Adicionar botão de logout na área administrativa.
+
 ## 1.0.0
 > Iniciar a aplicação frontend
 - Criando a aplicação principal com typescript e vue

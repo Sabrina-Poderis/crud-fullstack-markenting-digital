@@ -39,7 +39,12 @@ export const ClientsService = {
     body: { name: string; email: string; phone: string; company: string }
   ): Promise<boolean> {
     try {
-      await api.put(`/clients/${id}`, body);
+      await api.put(`/clients/${id}`, {
+        name: body.name,
+        email: body.email,
+        phone: body.phone,
+        company: body.company,
+      });
       return true
     } catch (error) {
       console.error(error);

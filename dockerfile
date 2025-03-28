@@ -4,12 +4,12 @@ WORKDIR /app
 
 # Copiar o package.json do backend e instalar as dependências
 COPY backend/package*.json ./backend/
-RUN yarn --cwd backend
+RUN cd backend && yarn install --frozen-lockfile
 
 # Copiar o código do backend para dentro da imagem
 COPY backend ./backend/
 
-# Trabalhar no diretório do backend e construir
+# Construir o backend
 WORKDIR /app/backend
 RUN yarn build
 
@@ -19,17 +19,20 @@ WORKDIR /app
 
 # Copiar o package.json do frontend e instalar as dependências
 COPY frontend/package*.json ./frontend/
-RUN yarn --cwd frontend
+RUN cd frontend && yarn install --frozen-lockfile
 
 # Copiar o código do frontend para dentro da imagem
 COPY frontend ./frontend/
 
-# Trabalhar no diretório do frontend e construir
+# Construir o frontend
 WORKDIR /app/frontend
 RUN yarn build
 
 # Etapa final: Nginx + Backend
 FROM nginx:alpine
+
+# Instalar Yarn no Alpine
+RUN apk add --no-cache nodejs npm && npm install -g yarn
 
 # Copiar o frontend para o Nginx
 COPY --from=frontend-build /app/frontend/dist /usr/share/nginx/html
@@ -43,4 +46,4 @@ EXPOSE 80
 EXPOSE 5000
 
 # Iniciar o backend e o Nginx
-CMD ["sh", "-c", "yarn --cwd /app/backend start:prod & nginx -g 'daemon off;'"]
+CMD ["sh", "-c", "cd /app/backend && yarn start:prod & nginx -g 'daemon off;'"]

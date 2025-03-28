@@ -5,10 +5,10 @@ import authMiddleware from '../middleware/authMiddleware';
 const ClientRoutes = express.Router();
 const clientController = new ClientController();
 
-ClientRoutes.get('/', authMiddleware, clientController.findAll);
-ClientRoutes.get('/:id', authMiddleware, clientController.findOne);
-ClientRoutes.post('/', authMiddleware, clientController.create);
-ClientRoutes.put('/:id', authMiddleware, clientController.update);
-ClientRoutes.delete('/:id', authMiddleware, clientController.delete);
+ClientRoutes.get('/', authMiddleware, clientController.findAll.bind(clientController));
+ClientRoutes.get('/:id', authMiddleware, clientController.findOne.bind(clientController));
+ClientRoutes.post('/', authMiddleware, clientController.create.bind(clientController));
+ClientRoutes.put('/:id', authMiddleware, clientController.update.bind(clientController));
+ClientRoutes.delete('/:id', authMiddleware, clientController.delete.bind(clientController));
 
 export default ClientRoutes;

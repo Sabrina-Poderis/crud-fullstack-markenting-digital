@@ -57,7 +57,7 @@ const saveClient = async () => {
 };
 
 const goBack = () => {
-  router.back();
+  router.push('/clients');
 };
 
 onMounted(() => {

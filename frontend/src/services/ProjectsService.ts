@@ -55,7 +55,14 @@ export const ProjectsService = {
     }
   ): Promise<boolean> {
     try {
-      await api.put(`/projects/${id}`, body);
+      await api.put(`/projects/${id}`, {
+        name: body.name,
+        description: body.description,
+        budget: body.budget,
+        startDate: body.startDate,
+        endDate: body.endDate,
+        clientId: body.clientId,
+      });
       return true
     } catch (error) {
       console.error(error);

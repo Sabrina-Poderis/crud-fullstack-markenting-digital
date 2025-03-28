@@ -46,12 +46,29 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+input {
+  margin: 5px 0;
+  padding: 8px;
+}
+
 button:hover {
   border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.main_container {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: auto;
+}
+
+.error {
+  color: red;
 }
 
 .card {

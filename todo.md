@@ -37,6 +37,12 @@ Criar uma aplicação full-stack simples com **Express.js** no back-end e **Vue.
 - [ ] Utilizar **Vue Router** para navegação entre páginas.
 - [ ] Interface responsiva e amigável.
 
+#### Melhorias
+- [ ] Adicionar paginação na listagem de clientes e projetos.
+- [ ] Implementar notificações/toasts para feedback ao usuário.
+- [ ] Criar tela de carregamento (skeleton loaders/spinners).
+- [ ] Criar componentes reutilizáveis (botões, formulários, modais, etc.).
+
 ## **Entrega e Construção**
 
 - [ ] Criar um repositório **privado** no GitHub e compartilhar com **@luiszxcv (luisfelipesantoszxcv@hotmail.com)**

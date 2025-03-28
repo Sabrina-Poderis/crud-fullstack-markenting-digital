@@ -4,11 +4,10 @@ import UserInterface from "../ts/interfaces/UserInterface";
 import env from "../config/env";
 import UserRepository from "../repositories/UserRepository";
 import ApiResponseInterface from "../ts/interfaces/ApiResponseInterface";
-import UserLoginResponse from "../ts/types/UserLoginResponse";
+import UserResponse from "../ts/types/UserResponse";
 import ResponseMessages from "../ts/enum/ResponseMessages";
 import UserCreateRequest from "../ts/types/UserCreateRequest";
 import UserLoginRequest from "../ts/types/UserLoginRequest";
-import UserCreateResponse from "../ts/types/UserCreateResponse";
 export default class UserService {
   private userRepository: UserRepository;
 
@@ -18,7 +17,7 @@ export default class UserService {
 
   async login(
     data: UserLoginRequest
-  ): Promise<ApiResponseInterface<UserLoginResponse>> {
+  ): Promise<ApiResponseInterface<UserResponse>> {
     try {
       const user = await this.userRepository.findByEmail(data.email);
 
@@ -53,7 +52,7 @@ export default class UserService {
     }
   }
 
-  async register(data: UserCreateRequest): Promise<ApiResponseInterface<UserCreateResponse>> {
+  async register(data: UserCreateRequest): Promise<ApiResponseInterface<UserResponse>> {
     try {
       if (await this.userRepository.findByEmail(data.email)) {
         return {
@@ -67,7 +66,7 @@ export default class UserService {
       if (user) {
         return {
           status: 201,
-          data: user,
+          data: { token: await this.generateToken(user) },
           message: ResponseMessages.USER_CREATED,
         };
       }
@@ -90,7 +89,7 @@ export default class UserService {
 
   private async generateToken(user: UserInterface) {
     return await jwt.sign(
-      { id: user.id, email: user.email },
+      { id: user.id, name: user.name, email: user.email },
       env.JWT_SECRET_KEY,
       {
         expiresIn: "1h",

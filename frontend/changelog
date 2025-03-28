@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.0.3
+> Páginas de Projetos
+- Criar página Lista de Projetos (`/projects`).
+  - Buscar projetos da API (`GET /projects`).
+  - Exibir projetos em uma tabela ou cards.
+  - Implementar busca e filtros.
+- Criar página Cadastro/Edição de Projeto (`/projects/new` e `/projects/:id/edit`).
+  - Criar formulário para cadastro e edição de projetos.
+  - Enviar dados para a API (`POST /projects` e `PUT /projects/:id`).
+  - Implementar validação de entrada com Vuelidate ou Yup.
+- Criar funcionalidade para associar projetos a clientes.
+  - No formulário do projeto, adicionar um campo de seleção de cliente.
+  - Enviar `clientId` ao criar ou editar um projeto.
+- Implementar remoção de projetos.
+  - Criar botão para excluir (`DELETE /projects/:id`).
+  - Garantir que a exclusão de um cliente também exclui seus projetos.
+
 ## 1.0.2
 > Páginas de Clientes
 - Criar página Lista de Clientes (`/clients`).

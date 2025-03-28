@@ -14,13 +14,13 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { authService } from "../services/authService";
+import { UserService } from "../services/UserService";
 
 const router = useRouter();
 const isLoggedIn = ref(false);
 
 const checkAuth = () => {
-  isLoggedIn.value = authService.isAuthenticated();
+  isLoggedIn.value = UserService.isAuthenticated();
 };
 
 onMounted(() => {
@@ -39,11 +39,3 @@ const handleDashboard = () => {
   router.push("/dashboard");
 };
 </script>
-
-<style scoped>
-.buttons_container {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-}
-</style>

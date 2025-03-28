@@ -4,7 +4,7 @@ import ProjectService from "../services/ProjectService";
 import validateCreateProjectBody from "../schema/validateCreateProjectBody";
 import validateGetId from "../schema/validateGetId";
 
-export default class UserController {
+export default class ProjectController {
   private projectService: ProjectService;
 
   constructor() {

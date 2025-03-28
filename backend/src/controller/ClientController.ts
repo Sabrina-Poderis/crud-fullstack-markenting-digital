@@ -3,7 +3,7 @@ import validateCreateClientBody from "../schema/validateCreateClientBody";
 import validateGetId from "../schema/validateGetId";
 import ClientService from "../services/ClientService";
 
-export default class UserController {
+export default class ClientController {
   private clientService: ClientService;
 
   constructor() {

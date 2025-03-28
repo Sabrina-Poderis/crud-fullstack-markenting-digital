@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { authService } from "../../services/authService";
+import { UserService } from "../../services/UserService";
 
 const router = useRouter();
 const name = ref("");
@@ -21,7 +21,7 @@ const password = ref("");
 const errorMessage = ref("");
 
 const handleRegister = async () => {
-  const success = await authService.register({
+  const success = await UserService.register({
     name: name.value,
     email: email.value,
     password: password.value,

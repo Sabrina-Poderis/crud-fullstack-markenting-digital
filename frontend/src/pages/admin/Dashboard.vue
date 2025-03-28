@@ -2,17 +2,21 @@
   <div>
     <h2>Dashboard</h2>
     <p>Bem-vindo, {{ user?.name }}!</p>
-    <button @click="handleLogout">Sair</button>
+
+    <div class="buttons_container">
+      <button @click="handleClients">Clientes</button>
+      <button @click="handleLogout">Sair</button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { authService } from "../../services/authService";
+import { UserService } from "../../services/UserService";
 
 const router = useRouter();
-const user = ref(authService.getUser());
+const user = ref(UserService.getUser());
 
 onMounted(() => {
   if (!user.value) {
@@ -20,8 +24,12 @@ onMounted(() => {
   }
 });
 
+const handleClients = () => {
+  router.push("/users");
+};
+
 const handleLogout = () => {
-  authService.logout();
+  UserService.logout();
   router.push("/login");
 };
 </script>

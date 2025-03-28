@@ -8,7 +8,7 @@ interface DecodedToken {
   exp: number;
 }
 
-export const authService = {
+export const UserService = {
   async register(body: { name: string; email: string; password: string }): Promise<boolean> {
     try {
       const response = await api.post("/user/register", body);

@@ -1,7 +1,7 @@
-import { authService } from "../services/authService";
+import { UserService } from "../services/UserService";
 
 const AuthRouteMiddleware = (_to: any, _from: any, next: any) => {
-  if (!authService.isAuthenticated()) {
+  if (!UserService.isAuthenticated()) {
     next("/login");
   } else {
     next();

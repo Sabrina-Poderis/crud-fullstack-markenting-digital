@@ -60,11 +60,33 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
 .main_container {
   display: flex;
   flex-direction: column;
   max-width: 300px;
   margin: auto;
+}
+
+.buttons_container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 25px;
 }
 
 .error {

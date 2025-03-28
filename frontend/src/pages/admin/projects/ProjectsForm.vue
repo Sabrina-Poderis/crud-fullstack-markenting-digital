@@ -2,9 +2,9 @@
   <div class="main_container">
     <h1>{{ isEdit ? "Editar Projeto" : "Novo Projeto" }}</h1>
     <form @submit.prevent="saveProject">
-    
+
       <input v-model="project.name" required placeholder="Nome" />
-      <input v-model="project.description" required placeholder="Descrição" />
+      <textarea v-model="project.description" required placeholder="Descrição" rows="4" cols="50"></textarea>
       <input v-model="project.budget" type="number" required placeholder="Budget" />
       <input v-model="project.startDate" type="date" required placeholder="Data Início" />
       <input v-model="project.endDate" type="date" required placeholder="Data fim" />
@@ -17,6 +17,7 @@
         <button type="submit">Salvar</button>
         <button type="button" @click="goBack">Voltar</button>
       </div>
+      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     </form>
   </div>
 </template>
@@ -62,12 +63,18 @@ const fetchProject = async (id: number) => {
 
 const saveProject = async () => {
   try {
+    let success = false
     if (isEdit.value) {
-      await ProjectsService.update(id, project.value);
+      success = await ProjectsService.update(id, project.value);
     } else {
-      await ProjectsService.create(project.value);
+      success = await ProjectsService.create(project.value);
     }
-    router.push("/projects");
+
+    if (success) {
+      router.push("/projects");
+    } else {
+      errorMessage.value = "Erro ao salvar projeto";
+    }
   } catch (error) {
     console.error("Erro ao salvar projeto", error);
   }

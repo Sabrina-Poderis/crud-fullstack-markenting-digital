@@ -11,6 +11,7 @@
         <button type="submit">Salvar</button>
         <button type="button" @click="goBack">Voltar</button>
       </div>
+      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     </form>
   </div>
 </template>
@@ -38,12 +39,17 @@ const fetchClient = async () => {
 
 const saveClient = async () => {
   try {
+    let success = false
     if (isEdit.value) {
-      await ClientsService.update(id, client.value);
+      success = await ClientsService.update(id, client.value);
     } else {
-      await ClientsService.create(client.value);
+      success = await ClientsService.create(client.value);
     }
-    router.push("/clients");
+    if (success) {
+      router.push("/clients");
+    } else {
+      errorMessage.value = "Erro ao salvar cliente";
+    }
   } catch (error) {
     console.error("Erro ao salvar cliente", error);
   }

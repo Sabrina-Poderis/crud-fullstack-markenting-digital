@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.12
+> Refatoração de respostas das rotas de usuários
+- Tanto o login quanto o register retorna o token
+
 ## 1.0.11
 > Refatoração de serviços
 - Transformar os `services` em `repositories`, e passar as regras de negócio do `controller` para `services`

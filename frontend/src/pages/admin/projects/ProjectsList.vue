@@ -51,7 +51,7 @@ const fetchProjects = async () => {
 };
 
 const goBack = () => {
-  router.back();
+  router.push('/dashboard');
 };
 
 const goToCreateProject = () => {

@@ -25,10 +25,10 @@ export default class ClientController {
   }
 
   async update(req: Request, res: Response): Promise<void> {
-    const { id } = req.query;
+    const { id } = req.params;
 
     const bodyValidated = validateCreateClientBody(req.body);
-    const validatedIdQuery = validateGetId(req.query);
+    const validatedIdQuery = validateGetId(req.params);
 
     if (bodyValidated.error) {
       res.status(400).json({ message: bodyValidated.message });
@@ -48,9 +48,9 @@ export default class ClientController {
   }
 
   async delete(req: Request, res: Response): Promise<void> {
-    const { id } = req.query;
+    const { id } = req.params;
 
-    const validatedIdQuery = validateGetId(req.query);
+    const validatedIdQuery = validateGetId(req.params);
     if (validatedIdQuery.error) {
       res.status(400).json({ message: validatedIdQuery.message });
       return;
@@ -64,9 +64,9 @@ export default class ClientController {
   }
 
   async findOne(req: Request, res: Response): Promise<void> {
-    const { id } = req.query;
+    const { id } = req.params;
 
-    const validatedIdQuery = validateGetId(req.query);
+    const validatedIdQuery = validateGetId(req.params);
     if (validatedIdQuery.error) {
       res.status(400).json({ message: validatedIdQuery.message });
       return;
@@ -79,7 +79,7 @@ export default class ClientController {
     });
   }
 
-  async findAll(_req: Request, res: Response): Promise<void> {
+  async findAll(req: Request, res: Response): Promise<void> {
     const result = await this.clientService.findAll();
     res.status(result.status).json({
       message: result.message,

@@ -83,7 +83,7 @@ const saveProject = async () => {
 };
 
 const goBack = () => {
-  router.back();
+  router.push('/projects');
 };
 
 onMounted(() => {

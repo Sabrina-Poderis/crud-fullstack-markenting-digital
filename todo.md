@@ -29,13 +29,13 @@ Criar uma aplicação full-stack simples com **Express.js** no back-end e **Vue.
 
 ### **Front-end (Vue.js)**
 
-- [ ] Criar uma interface em **Vue.js** para interagir com a API.
-- [ ] O front-end deve permitir:
-    - [ ] Cadastro, login e logout de usuários.
-    - [ ] CRUD de projetos.
-    - [ ] Associação de projetos a clientes.
-- [ ] Utilizar **Vue Router** para navegação entre páginas.
-- [ ] Interface responsiva e amigável.
+- [x] Criar uma interface em **Vue.js** para interagir com a API.
+- [x] O front-end deve permitir:
+    - [x] Cadastro, login e logout de usuários.
+    - [x] CRUD de projetos.
+    - [x] Associação de projetos a clientes.
+- [x] Utilizar **Vue Router** para navegação entre páginas.
+- [x] Interface responsiva e amigável.
 
 #### Melhorias
 - [ ] Adicionar paginação na listagem de clientes e projetos.
@@ -47,8 +47,8 @@ Criar uma aplicação full-stack simples com **Express.js** no back-end e **Vue.
 
 - [ ] Criar um repositório **privado** no GitHub e compartilhar com **@luiszxcv (luisfelipesantoszxcv@hotmail.com)**
 - [ ] Enviar um **PDF contendo o esquema da API** (exemplo: estrutura de endpoints e JSON de respostas esperadas).
-- [ ] As **mensagens dos commits serão analisadas**, então seja claro e objetivo.
-- [ ] A aplicação deve rodar com **Docker**, contendo um `Dockerfile` para cada serviço (back e front).
+- [x] As **mensagens dos commits serão analisadas**, então seja claro e objetivo.
+- [x] A aplicação deve rodar com **Docker**, contendo um `Dockerfile` para cada serviço (back e front).
 - [ ] Fornecer um arquivo `README.md` no repositório, explicando como rodar o projeto localmente e via Docker.
 
 ---

@@ -32,6 +32,8 @@ import type { Project } from "../../../ts/types/Project";
 
 const router = useRouter();
 const route = useRoute();
+
+const errorMessage = ref("");
 const clients: Ref<Clients[]> = ref([]);
 const project: Ref<Project> = ref({
   name: "",

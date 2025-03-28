@@ -25,6 +25,7 @@ import type { Client } from "../../../ts/types/Client";
 const router = useRouter();
 const route = useRoute();
 const client: Ref<Client> = ref({ name: "", email: "", phone: "", company: "" });
+const errorMessage = ref("");
 
 const id = Number(route.params.id);
 const isEdit = computed(() => !!route.params.id);

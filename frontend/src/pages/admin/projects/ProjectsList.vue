@@ -37,6 +37,7 @@ import { ref, onMounted, type Ref } from "vue";
 import { useRouter } from "vue-router";
 import { ProjectsService } from "../../../services/ProjectsService";
 import type { Projects } from "../../../ts/types/Project";
+import formatDate from "../../../utils/formatDate"
 
 const router = useRouter();
 const projects: Ref<Projects[]> = ref([]);

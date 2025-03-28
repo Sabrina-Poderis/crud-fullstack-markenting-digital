@@ -25,25 +25,25 @@ export const ClientsService = {
     email: string;
     phone: string;
     company: string;
-  }): Promise<Client> {
+  }): Promise<boolean> {
     try {
-      const response = await api.post("/clients", body);
-      return response.data.data;
+      await api.post("/clients", body);
+      return true
     } catch (error) {
       console.error(error);
-      return { name: "", email: "", phone: "", company: "" };
+      return false
     }
   },
   async update(
     id: number,
     body: { name: string; email: string; phone: string; company: string }
-  ): Promise<Client> {
+  ): Promise<boolean> {
     try {
-      const response = await api.put(`/clients/${id}`, body);
-      return response.data.data;
+      await api.put(`/clients/${id}`, body);
+      return true
     } catch (error) {
       console.error(error);
-      return { name: "", email: "", phone: "", company: "" };
+      return false
     }
   },
   async delete(id: number): Promise<boolean> {

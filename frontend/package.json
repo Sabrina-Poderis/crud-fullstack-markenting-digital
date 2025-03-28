@@ -1,7 +1,12 @@
 {
   "name": "fullstack-markenting-digital-frontend",
   "private": true,
-  "version": "1.0.3",
+  "version": "1.0.4",
+  "description": "O sistema deve permitir o gerenciamento de usuários e projetos de clientes de marketing digital, com comunicação via API REST",
+  "main": "index.js",
+  "keywords": ["node_v18","vue", "typescript"],
+  "author": "sabrina.poderis@gmail.com",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,6 +19,7 @@
   },
   "dependencies": {
     "axios": "^1.8.4",
+    "date-fns": "^4.1.0",
     "jwt-decode": "^4.0.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
@@ -27,13 +33,8 @@
     "eslint-plugin-prettier": "^5.2.5",
     "eslint-plugin-vue": "^10.0.0",
     "prettier": "^3.5.3",
-    "typescript": "~5.7.2",
+    "typescript": "^5.8.2",
     "vite": "^6.2.0",
     "vue-tsc": "^2.2.4"
-  },
-  "description": "This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

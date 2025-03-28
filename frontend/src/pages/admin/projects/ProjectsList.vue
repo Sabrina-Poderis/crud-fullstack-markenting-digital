@@ -15,7 +15,7 @@
         <tbody>
           <tr v-for="project in projects" :key="project.id">
             <td>{{ project.name }}</td>
-            <td>{{ project.startDate }} - {{ project.endDate }}</td>
+            <td>{{ formatDate(project.startDate) }} - {{ formatDate(project.endDate) }}</td>
             <td>
               <button @click="editProject(project.id)">Editar</button>
               <button @click="deleteProject(project.id)">Excluir</button>
@@ -26,7 +26,7 @@
     </template>
 
     <div class="buttons_container">
-      <button @click="goToCreateClient">Novo Cliente</button>
+      <button @click="goToCreateProject">Novo Projeto</button>
       <button type="button" @click="goBack">Voltar</button>
     </div>
   </div>
@@ -37,6 +37,7 @@ import { ref, onMounted, type Ref } from "vue";
 import { useRouter } from "vue-router";
 import { ProjectsService } from "../../../services/ProjectsService";
 import type { Projects } from "../../../ts/types/Project";
+import formatDate from "../../../utils/formatDate"
 
 const router = useRouter();
 const projects: Ref<Projects[]> = ref([]);
@@ -45,7 +46,7 @@ const fetchProjects = async () => {
   try {
     projects.value = await ProjectsService.get();
   } catch (error) {
-    console.error("Erro ao buscar clientes", error);
+    console.error("Erro ao buscar projetos", error);
   }
 };
 
@@ -53,7 +54,7 @@ const goBack = () => {
   router.back();
 };
 
-const goToCreateClient = () => {
+const goToCreateProject = () => {
   router.push("/projects/new");
 };
 
@@ -66,7 +67,7 @@ const deleteProject = async (id: number) => {
     await ProjectsService.delete(id);
     await fetchProjects();
   } catch (error) {
-    console.error("Erro ao excluir cliente", error);
+    console.error("Erro ao excluir projeto", error);
   }
 };
 

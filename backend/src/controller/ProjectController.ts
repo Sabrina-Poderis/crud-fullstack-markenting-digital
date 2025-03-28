@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import ResponseMessages from "../ts/enum/ResponseMessages";
 import ProjectService from "../services/ProjectService";
 import validateCreateProjectBody from "../schema/validateCreateProjectBody";
 import validateGetId from "../schema/validateGetId";

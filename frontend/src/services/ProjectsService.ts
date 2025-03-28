@@ -29,42 +29,37 @@ export const ProjectsService = {
   },
   async create(body: {
     name: string;
-    email: string;
-    phone: string;
-    company: string;
-  }): Promise<Project> {
+    description: string;
+    budget: number;
+    startDate: Date;
+    endDate: Date;
+    clientId: number;
+  }): Promise<boolean> {
     try {
-      const response = await api.post("/projects", body);
-      return response.data.data;
+      await api.post("/projects", body);
+      return true;
     } catch (error) {
       console.error(error);
-      return {
-        name: "",
-        description: "",
-        budget: 0,
-        startDate: new Date(),
-        endDate: new Date(),
-        clientId: 0,
-      };
+      return false;
     }
   },
   async update(
     id: number,
-    body: { name: string; email: string; phone: string; company: string }
-  ): Promise<Project> {
+    body: {
+      name: string;
+      description: string;
+      budget: number;
+      startDate: Date;
+      endDate: Date;
+      clientId: number;
+    }
+  ): Promise<boolean> {
     try {
-      const response = await api.put(`/projects/${id}`, body);
-      return response.data.data;
+      await api.put(`/projects/${id}`, body);
+      return true
     } catch (error) {
       console.error(error);
-      return {
-        name: "",
-        description: "",
-        budget: 0,
-        startDate: new Date(),
-        endDate: new Date(),
-        clientId: 0,
-      };
+      return false;
     }
   },
   async delete(id: number): Promise<boolean> {

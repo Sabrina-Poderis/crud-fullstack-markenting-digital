@@ -47,7 +47,7 @@ button {
   transition: border-color 0.25s;
 }
 
-input {
+input, textarea {
   margin: 5px 0;
   padding: 8px;
 }

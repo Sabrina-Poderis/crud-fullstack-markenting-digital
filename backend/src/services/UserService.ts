@@ -89,7 +89,7 @@ export default class UserService {
 
   private async generateToken(user: UserInterface) {
     return await jwt.sign(
-      { id: user.id, email: user.email },
+      { id: user.id, name: user.name, email: user.email },
       env.JWT_SECRET_KEY,
       {
         expiresIn: "1h",

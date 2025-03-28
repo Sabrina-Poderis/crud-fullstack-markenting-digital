@@ -9,31 +9,31 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
-  import { useRouter } from "vue-router";
-  import { authService } from "../../services/authService";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { authService } from "../../services/authService";
 
-  const router = useRouter();
-  const email = ref("");
-  const password = ref("");
-  const errorMessage = ref("");
+const router = useRouter();
+const email = ref("");
+const password = ref("");
+const errorMessage = ref("");
 
-  const handleLogin = async () => {
-    const success = await authService.login({
-      email: email.value,
-      password: password.value
-    })
+const handleLogin = async () => {
+  const success = await authService.login({
+    email: email.value,
+    password: password.value,
+  });
 
-    if (success) {
-      router.push("/dashboard");
-    } else {
-      errorMessage.value = "Credenciais inválidas";
-    }
-  };
+  if (success) {
+    router.push("/dashboard");
+  } else {
+    errorMessage.value = "Credenciais inválidas";
+  }
+};
 </script>
 
 <style scoped>
-  .button_login {
-    margin-top: 10px
-  }
+.button_login {
+  margin-top: 10px;
+}
 </style>

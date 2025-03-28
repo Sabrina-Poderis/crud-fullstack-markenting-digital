@@ -44,7 +44,7 @@ export const authService = {
 
     try {
       const decoded: DecodedToken = jwtDecode(token);
-      return { 
+      return {
         id: decoded.id,
         name: decoded.name,
         email: decoded.email,

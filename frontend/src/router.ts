@@ -1,11 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AuthRouteMiddleware from "./middleware/AuthRouteMiddleware";
 
-import Home from "./pages/Home.vue"
-import Login from "./pages/auth/Login.vue"
-import Register from "./pages/auth/Register.vue"
-import Dashboard from "./pages/admin/Dashboard.vue"
-
+import Home from "./pages/Home.vue";
+import Login from "./pages/auth/Login.vue";
+import Register from "./pages/auth/Register.vue";
+import Dashboard from "./pages/admin/Dashboard.vue";
 
 const routes = [
   { path: "/", component: Home },
@@ -14,7 +13,7 @@ const routes = [
   {
     path: "/dashboard",
     component: Dashboard,
-    beforeEnter: AuthRouteMiddleware
+    beforeEnter: AuthRouteMiddleware,
   },
 ];
 

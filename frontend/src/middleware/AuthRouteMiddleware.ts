@@ -6,6 +6,6 @@ const AuthRouteMiddleware = (_to: any, _from: any, next: any) => {
   } else {
     next();
   }
-}
+};
 
-export default AuthRouteMiddleware
+export default AuthRouteMiddleware;

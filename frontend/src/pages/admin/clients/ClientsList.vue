@@ -54,7 +54,7 @@ const fetchClients = async () => {
 };
 
 const goBack = () => {
-  router.back();
+  router.push('/dashboard');
 };
 
 const goToCreateClient = () => {

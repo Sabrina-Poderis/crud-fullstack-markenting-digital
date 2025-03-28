@@ -11,6 +11,7 @@
   "author": "Sabrina Poderis <sabrina.poderis@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "install:all": "cd frontend && yarn && cd ../backend && yarn",
     "docker:start": "docker-compose up --build"
   }
 }

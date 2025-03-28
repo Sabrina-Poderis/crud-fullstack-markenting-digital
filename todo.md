@@ -24,7 +24,7 @@ Criar uma aplicação full-stack simples com **Express.js** no back-end e **Vue.
 - [x] Migrar as tipagens das requisições para a pasta `ts`
 - [ ] Melhorar a forma que é feito o validator da `Request`
 - [ ] Incluir testes unitários
-- [ ] Colocar doc do backend dentro do projeto ou um swagger
+- [x] Colocar doc do backend dentro do projeto ou um swagger
 - [ ] Incluir o arquivo do postman
 
 ### **Front-end (Vue.js)**
@@ -49,11 +49,11 @@ Criar uma aplicação full-stack simples com **Express.js** no back-end e **Vue.
 - [ ] Enviar um **PDF contendo o esquema da API** (exemplo: estrutura de endpoints e JSON de respostas esperadas).
 - [x] As **mensagens dos commits serão analisadas**, então seja claro e objetivo.
 - [x] A aplicação deve rodar com **Docker**, contendo um `Dockerfile` para cada serviço (back e front).
-- [ ] Fornecer um arquivo `README.md` no repositório, explicando como rodar o projeto localmente e via Docker.
+- [x] Fornecer um arquivo `README.md` no repositório, explicando como rodar o projeto localmente e via Docker.
 
 ---
 
 ## **Diferenciais**
 
-- [ ] Implementação de um design agradável no front.
+- Implementação de um design agradável no front.
 - [ ] Deploy da aplicação (mesmo que apenas back ou front).

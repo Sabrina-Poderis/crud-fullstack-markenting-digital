@@ -1,0 +1,17 @@
+{
+  "name": "fullstack-markenting-digital",
+  "version": "1.0.0",
+  "description": "Aplicação full-stack simples com Express.js no back-end e Vue.js no front-end. O sistema deve permitir o gerenciamento de usuários e projetos de clientes de marketing digital, com comunicação via API REST.",
+  "keywords": [
+    "node_v18",
+    "vue",
+    "express",
+    "typescript"
+  ],
+  "author": "Sabrina Poderis <sabrina.poderis@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "install:all": "cd frontend && yarn && cd ../backend && yarn",
+    "docker:start": "docker-compose up --build"
+  }
+}

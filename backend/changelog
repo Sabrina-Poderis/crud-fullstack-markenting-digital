@@ -1,0 +1,53 @@
+# Changelog
+
+## 1.0.14
+> Corrigindo o nome das controllers
+
+## 1.0.13
+> Adicionando o nome do usuário no token de auth
+
+## 1.0.12
+> Refatoração de respostas das rotas de usuários
+- Tanto o login quanto o register retorna o token
+
+## 1.0.11
+> Refatoração de serviços
+- Transformar os `services` em `repositories`, e passar as regras de negócio do `controller` para `services`
+- Migrar as tipagens das requisições para a pasta `ts`
+
+## 1.0.10
+> Criado o módulo `Projects`
+
+## 1.0.9
+> Criado o módulo `Clients`
+
+## 1.0.8
+> Fix: Ajuste no retorno assíncrono do token na rota do login
+
+## 1.0.7
+> Fix: Ajuste no Sequelize para reconhecer a Model
+
+## 1.0.6
+> Fix: Incluindo a rota de login no routes
+
+## 1.0.5
+> Criando o `authMiddleware`
+
+## 1.0.4
+> Criando a rota de login
+
+## 1.0.3
+> Criando a rota de register
+
+## 1.0.2
+> Migrando do ORM de Knex para Sequelize 
+
+- Criando User model
+
+## 1.0.1
+> Incluindo o banco de dados postgree
+
+## 1.0.0
+> Iniciar a aplicação backend
+- Criando a aplicação principal com typescript e express
+- Configuração do docker file

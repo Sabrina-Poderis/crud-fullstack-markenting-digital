@@ -1,0 +1,48 @@
+# Changelog
+
+## 1.0.4
+> Corrigindo a tipagem de services
+
+## 1.0.3
+> Páginas de Projetos
+- Criar página Lista de Projetos (`/projects`).
+  - Buscar projetos da API (`GET /projects`).
+  - Exibir projetos em uma tabela ou cards.
+  - Implementar busca e filtros.
+- Criar página Cadastro/Edição de Projeto (`/projects/new` e `/projects/:id/edit`).
+  - Criar formulário para cadastro e edição de projetos.
+  - Enviar dados para a API (`POST /projects` e `PUT /projects/:id`).
+  - Implementar validação de entrada com Vuelidate ou Yup.
+- Criar funcionalidade para associar projetos a clientes.
+  - No formulário do projeto, adicionar um campo de seleção de cliente.
+  - Enviar `clientId` ao criar ou editar um projeto.
+- Implementar remoção de projetos.
+  - Criar botão para excluir (`DELETE /projects/:id`).
+  - Garantir que a exclusão de um cliente também exclui seus projetos.
+
+## 1.0.2
+> Páginas de Clientes
+- Criar página Lista de Clientes (`/clients`).
+  - Buscar lista de clientes da API (`GET /clients`).
+  - Exibir os clientes em um tabela ou cards.
+  - Implementar busca e filtros.
+- Criar página Cadastro/Edição de Cliente (`/clients/new` e `/clients/:id/edit`).
+  - Criar formulário para cadastro e edição de clientes.
+  - Enviar dados para a API (`POST /clients` e `PUT /clients/:id`).
+  - Implementar validação de entrada com Vuelidate ou Yup.
+- Implementar remoção de cliente.
+  - Criar botão para excluir (`DELETE /clients/:id`).
+  - Implementar soft delete no frontend (atualizando estado da lista).
+
+## 1.0.1
+> Páginas de Usuários
+- Criar páginas de login e cadastro.
+- Criar um serviço para autenticação via API (`/user/register` e `/user/login`).
+- Implementar armazenamento de token JWT no localStorage.
+- Criar middleware para redirecionamento baseado na autenticação.
+- Adicionar botão de logout na área administrativa.
+
+## 1.0.0
+> Iniciar a aplicação frontend
+- Criando a aplicação principal com typescript e vue
+- Configuração do docker file

@@ -29,9 +29,11 @@ export const ProjectsService = {
   },
   async create(body: {
     name: string;
-    email: string;
-    phone: string;
-    company: string;
+    description: string;
+    budget: number;
+    startDate: Date;
+    endDate: Date;
+    clientId: number;
   }): Promise<Project> {
     try {
       const response = await api.post("/projects", body);
@@ -50,7 +52,14 @@ export const ProjectsService = {
   },
   async update(
     id: number,
-    body: { name: string; email: string; phone: string; company: string }
+    body: {
+      name: string;
+      description: string;
+      budget: number;
+      startDate: Date;
+      endDate: Date;
+      clientId: number;
+    }
   ): Promise<Project> {
     try {
       const response = await api.put(`/projects/${id}`, body);

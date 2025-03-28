@@ -1,7 +1,7 @@
 {
   "name": "fullstack-markenting-digital-frontend",
   "private": true,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -27,7 +27,7 @@
     "eslint-plugin-prettier": "^5.2.5",
     "eslint-plugin-vue": "^10.0.0",
     "prettier": "^3.5.3",
-    "typescript": "~5.7.2",
+    "typescript": "^5.8.2",
     "vite": "^6.2.0",
     "vue-tsc": "^2.2.4"
   },

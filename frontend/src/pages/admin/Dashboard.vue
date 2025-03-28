@@ -5,6 +5,7 @@
 
     <div class="buttons_container">
       <button @click="handleClients">Clientes</button>
+      <button @click="handleProjects">Projetos</button>
       <button @click="handleLogout">Sair</button>
     </div>
   </div>
@@ -25,7 +26,11 @@ onMounted(() => {
 });
 
 const handleClients = () => {
-  router.push("/users");
+  router.push("/clients");
+};
+
+const handleProjects = () => {
+  router.push("/projects");
 };
 
 const handleLogout = () => {

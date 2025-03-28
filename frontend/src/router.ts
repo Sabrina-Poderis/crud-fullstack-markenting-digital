@@ -7,6 +7,8 @@ import Register from "./pages/auth/Register.vue";
 import Dashboard from "./pages/admin/Dashboard.vue";
 import ClientsList from "./pages/admin/clients/ClientsList.vue";
 import ClientsForm from "./pages/admin/clients/ClientsForm.vue";
+import ProjectsList from "./pages/admin/projects/ProjectsList.vue";
+import ProjectsForm from "./pages/admin/projects/ProjectsForm.vue";
 
 const routes = [
   { path: "/", component: Home },
@@ -16,6 +18,9 @@ const routes = [
   { path: "/clients", component: ClientsList, beforeEnter: AuthRouteMiddleware },
   { path: "/clients/new", component: ClientsForm, beforeEnter: AuthRouteMiddleware },
   { path: "/clients/:id/edit", component: ClientsForm, beforeEnter: AuthRouteMiddleware },
+  { path: "/projects", component: ProjectsList, beforeEnter: AuthRouteMiddleware },
+  { path: "/projects/new", component: ProjectsForm, beforeEnter: AuthRouteMiddleware },
+  { path: "/projects/:id/edit", component: ProjectsForm, beforeEnter: AuthRouteMiddleware },
 ];
 
 const router = createRouter({

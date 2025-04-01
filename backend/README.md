@@ -31,7 +31,7 @@ Veja a documentação em [API](./API.md)
   yarn docker:build
   ```
 
-- `docker:start`: Inicia o container Docker, expondo a porta 5000.
+- `docker:start`: Inicia o container Docker, expondo a porta 10000.
   ```bash
   yarn docker:start
   ```
@@ -81,7 +81,7 @@ Veja a documentação em [API](./API.md)
 Exemplo de variáveis de ambiente necessárias:
 
 ```env
-BACKEND_PORT=5000
+BACKEND_PORT=10000
 DB_HOST=localhost
 DB_PORT=5432
 DB_USERNAME=user

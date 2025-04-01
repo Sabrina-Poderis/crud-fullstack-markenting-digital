@@ -4,7 +4,7 @@ services:
   app:
     build: .
     ports:
-      - "5000:5000"  # Backend
+      - "10000:10000"  # Backend
       - "8080:80"    # Frontend
     environment:
       - NODE_ENV=${NODE_ENV}

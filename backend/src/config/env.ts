@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const env = {
-  PORT: process.env.BACKEND_PORT || 5000,
+  PORT: process.env.BACKEND_PORT || 10000,
   DB_HOST: process.env.DB_HOST,
   DB_PORT: process.env.DB_PORT || 5432,
   DB_USER: process.env.DB_USER,

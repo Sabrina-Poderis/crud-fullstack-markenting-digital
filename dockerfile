@@ -43,7 +43,7 @@ COPY --from=backend-build /app/backend /app/backend
 
 # Expor as portas para o Nginx (frontend) e o backend
 EXPOSE 80
-EXPOSE 5000
+EXPOSE 10000
 
 # Iniciar o backend e o Nginx
 CMD ["sh", "-c", "cd /app/backend && yarn start:prod & nginx -g 'daemon off;'"]

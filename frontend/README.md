@@ -88,7 +88,7 @@ Exemplo de variáveis de ambiente necessárias:
 
 ```env
 FRONTEND_PORT=8080
-VITE_API_URL=http://localhost:5000
+VITE_API_URL=http://localhost:10000
 JWT_SECRET=your_jwt_secret
 ```
 

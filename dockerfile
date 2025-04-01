@@ -34,6 +34,9 @@ FROM nginx:alpine
 # Instalar Yarn no Alpine
 RUN apk add --no-cache nodejs npm && npm install -g yarn
 
+# Copiar a configuração do Nginx
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+
 # Copiar o frontend para o Nginx
 COPY --from=frontend-build /app/frontend/dist /usr/share/nginx/html
 

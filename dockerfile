@@ -45,5 +45,7 @@ COPY --from=backend-build /app/backend /app/backend
 EXPOSE 80
 EXPOSE 10000
 
+COPY nginx.conf /etc/nginx/nginx.conf
+
 # Iniciar o backend e o Nginx
 CMD ["sh", "-c", "cd /app/backend && yarn start:prod & nginx -g 'daemon off;'"]

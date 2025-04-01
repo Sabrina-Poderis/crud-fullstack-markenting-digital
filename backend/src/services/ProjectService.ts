@@ -22,11 +22,12 @@ export default class ProjectService {
           message: ResponseMessages.PROJECT_CREATED,
           data: project,
         };
+      } else {
+        return {
+          status: 500,
+          message: ResponseMessages.PROJECT_NOT_CREATED,
+        };
       }
-      return {
-        status: 500,
-        message: ResponseMessages.PROJEC_NOT_CREATED,
-      };
     } catch (error) {
       return {
         status: 500,
@@ -41,19 +42,20 @@ export default class ProjectService {
   ): Promise<ApiResponseInterface<Project>> {
     try {
       await this.projectRepository.update(id, data);
-      const project = await this.projectRepository.findById(id);
 
+      const project = await this.projectRepository.findById(id);
       if (project) {
         return {
           status: 201,
           message: ResponseMessages.PROJECT_UPDATED,
           data: project,
         };
+      } else {
+        return {
+          status: 500,
+          message: ResponseMessages.PROJECT_NOT_UPDATED,
+        };
       }
-      return {
-        status: 500,
-        message: ResponseMessages.PROJEC_NOT_UPDATED,
-      };
     } catch (error) {
       return {
         status: 500,
@@ -67,10 +69,7 @@ export default class ProjectService {
       const projects = await this.projectRepository.findAll();
 
       if (!projects) {
-        return {
-          status: 400,
-          message: ResponseMessages.PROJECTS_NOT_FOUNDED,
-        };
+        return { status: 404, message: ResponseMessages.PROJECTS_NOT_FOUNDED };
       }
 
       return { status: 200, data: projects };

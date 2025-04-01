@@ -12,11 +12,11 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/user", UserRoutes);
-app.use("/clients", ClientRoutes);
-app.use("/projects", ProjectRoutes);
+app.use("/api/user", UserRoutes);
+app.use("/api/clients", ClientRoutes);
+app.use("/api/projects", ProjectRoutes);
 
-app.get("/healthCheck", async (_req, res) => {
+app.get("/api/healthCheck", async (_req, res) => {
   try {
     res.json({ status: "ok", db: "connected" });
   } catch (error) {

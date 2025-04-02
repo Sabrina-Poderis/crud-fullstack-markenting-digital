@@ -4,7 +4,11 @@
   "version": "1.0.4",
   "description": "O sistema deve permitir o gerenciamento de usuários e projetos de clientes de marketing digital, com comunicação via API REST",
   "main": "index.js",
-  "keywords": ["node_v18","vue", "typescript"],
+  "keywords": [
+    "node_v18",
+    "vue",
+    "typescript"
+  ],
   "author": "sabrina.poderis@gmail.com",
   "license": "MIT",
   "type": "module",
@@ -20,6 +24,7 @@
   "dependencies": {
     "axios": "^1.8.4",
     "date-fns": "^4.1.0",
+    "esbuild": "0.25.1",
     "jwt-decode": "^4.0.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"

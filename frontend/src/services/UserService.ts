@@ -48,6 +48,7 @@ export const UserService = {
         id: decoded.id,
         name: decoded.name,
         email: decoded.email,
+        exp: decoded.exp,
       };
     } catch (error) {
       console.error(error);
@@ -58,4 +59,22 @@ export const UserService = {
   isAuthenticated() {
     return localStorage.getItem("authorization") !== null;
   },
+
+  isTokenExpired(){
+    try {
+      const token = this.getUser()
+  
+      // Verifica se o token está expirado
+      if (!token || token.exp * 1000 < Date.now()) {
+        this.logout();
+        return true
+      }
+  
+      return false
+    } catch (error) {
+      console.error("Erro ao decodificar o token:", error);
+      this.logout();
+      return true
+    }
+  }
 };

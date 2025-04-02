@@ -1,7 +1,7 @@
 import { UserService } from "../services/UserService";
 
 const AuthRouteMiddleware = (_to: any, _from: any, next: any) => {
-  if (!UserService.isAuthenticated()) {
+  if (UserService.isTokenExpired()) {
     next("/login");
   } else {
     next();

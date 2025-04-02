@@ -4,6 +4,10 @@
 
 Aplicação **full-stack** simples desenvolvida com **Express.js** no back-end e **Vue.js** no front-end. O sistema permite o gerenciamento de usuários e projetos de clientes de marketing digital, com comunicação via API REST.
 
+## Deploy
+
+Por enquanto só o backend está disponível na url!
+
 ## Tecnologias Utilizadas
 
 - **Backend**:

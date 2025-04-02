@@ -27,9 +27,8 @@ app.get("/api/healthCheck", async (_req, res) => {
 sequelize
   .sync()
   .then(() => {
-    console.log("Banco de dados sincronizado com sucesso!");
     app.listen(PORT, async () => {
-      console.log(`Servidor rodando na porta ${PORT}`);
+      console.log(`Servidor rodando`);
     });
   })
   .catch((error) => console.error("Erro ao conectar ao banco:", error));

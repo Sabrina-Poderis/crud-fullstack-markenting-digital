@@ -2,11 +2,11 @@
 
 Sistema backend para gerenciar usuários e projetos de clientes de marketing digital via API REST.
 
-`v1.0.14`
+`v1.0.15`
 
 ## User Routes
 
-### `POST /register`
+### `POST /api/user/register`
 - **Descrição**: Registra um novo usuário.
 - **Requisição**:
   - Corpo da requisição (`JSON`):
@@ -43,7 +43,7 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
       ```
   - **Status 500**: Erro interno do servidor.
 
-### `POST /login`
+### `POST /api/user/login`
 - **Descrição**: Faz o login de um usuário.
 - **Requisição**:
   - Corpo da requisição (`JSON`):
@@ -87,7 +87,7 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
 
 ## Client Routes
 
-### `GET /`
+### `GET /api/clients`
 - **Descrição**: Retorna todos os clientes.
 - **Autenticação**: Requer autenticação (middleware `authMiddleware`).
 - **Resposta**:
@@ -120,7 +120,7 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
       ```
   - **Status 500**: Erro interno do servidor.
 
-### `GET /:id`
+### `GET /api/clients/:id`
 - **Descrição**: Retorna um cliente específico pelo ID.
 - **Autenticação**: Requer autenticação (middleware `authMiddleware`).
 - **Parâmetros**:
@@ -148,7 +148,7 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
       ```
   - **Status 500**: Erro interno do servidor.
 
-### `POST /`
+### `POST /api/clients/`
 - **Descrição**: Cria um novo cliente.
 - **Autenticação**: Requer autenticação (middleware `authMiddleware`).
 - **Requisição**:
@@ -186,7 +186,7 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
       ```
   - **Status 500**: Erro interno do servidor.
 
-### `PUT /:id`
+### `PUT /api/clients/:id`
 - **Descrição**: Atualiza as informações de um cliente específico.
 - **Autenticação**: Requer autenticação (middleware `authMiddleware`).
 - **Parâmetros**:
@@ -225,7 +225,7 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
       }
       ```
 
-### `DELETE /:id`
+### `DELETE /api/clients/:id`
 - **Descrição**: Exclui um cliente pelo ID.
 - **Autenticação**: Requer autenticação (middleware `authMiddleware`).
 - **Parâmetros**:
@@ -251,7 +251,7 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
 
 ## Project Routes
 
-### `GET /`
+### `GET /api/projects/`
 - **Descrição**: Retorna todos os projetos.
 - **Autenticação**: Requer autenticação (middleware `authMiddleware`).
 - **Resposta**:
@@ -284,7 +284,7 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
       ```
   - **Status 500**: Erro interno do servidor.
 
-### `GET /:id`
+### `GET /api/projects/:id`
 - **Descrição**: Retorna um projeto específico pelo ID.
 - **Autenticação**: Requer autenticação (middleware `authMiddleware`).
 - **Parâmetros**:
@@ -312,7 +312,7 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
       ```
   - **Status 500**: Erro interno do servidor.
 
-### `POST /`
+### `POST /api/projects/`
 - **Descrição**: Cria um novo projeto.
 - **Autenticação**: Requer autenticação (middleware `authMiddleware`).
 - **Requisição**:
@@ -349,7 +349,7 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
       }
       ```
 
-### `PUT /:id`
+### `PUT /api/projects/:id`
 - **Descrição**: Atualiza as informações de um projeto específico.
 - **Autenticação**: Requer autenticação (middleware `authMiddleware`).
 - **Parâmetros**:
@@ -388,7 +388,7 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
       }
       ```
 
-### `DELETE /:id`
+### `DELETE /api/projects/:id`
 - **Descrição**: Exclui um projeto pelo ID.
 - **Autenticação**: Requer autenticação (middleware `authMiddleware`).
 - **Parâmetros**:
@@ -411,9 +411,3 @@ Sistema backend para gerenciar usuários e projetos de clientes de marketing dig
       }
       ```
   - **Status 500**: Erro interno do servidor.
-
----
-
-## Resumo
-
-As rotas fornecem operações CRUD (criar, ler, atualizar, excluir) para os projetos. Assegure-se de fornecer a autenticação através do middleware `authMiddleware` para todas as operações.

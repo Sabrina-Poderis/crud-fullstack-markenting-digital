@@ -89,6 +89,12 @@ form {
   margin-top: 25px;
 }
 
+.button_container_list {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
 .error {
   color: red;
 }

@@ -1,6 +1,11 @@
-
 import { format } from "date-fns";
+import { toZonedTime } from "date-fns-tz";
 
-const formatDate = (date: Date) => (date ? format(new Date(date), "dd/MM/yyyy") : "");
+const formatDate = (date: Date) => {
+  if (!date) return "";
 
-export default formatDate
+  const zonedDate = toZonedTime(date, "America/Sao_Paulo");
+  return format(zonedDate, "dd/MM/yyyy");
+};
+
+export default formatDate;

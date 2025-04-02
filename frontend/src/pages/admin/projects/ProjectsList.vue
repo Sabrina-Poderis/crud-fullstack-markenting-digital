@@ -16,7 +16,7 @@
           <tr v-for="project in projects" :key="project.id">
             <td>{{ project.name }}</td>
             <td>{{ formatDate(project.startDate) }} - {{ formatDate(project.endDate) }}</td>
-            <td>
+            <td class="button_container_list">
               <button @click="editProject(project.id)">Editar</button>
               <button @click="deleteProject(project.id)">Excluir</button>
             </td>

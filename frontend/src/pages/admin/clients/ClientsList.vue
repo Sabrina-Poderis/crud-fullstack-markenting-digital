@@ -20,7 +20,7 @@
             <td>{{ client.email }}</td>
             <td>{{ client.phone }}</td>
             <td>{{ client.company }}</td>
-            <td>
+            <td class="button_container_list">
               <button @click="editClient(client.id)">Editar</button>
               <button @click="deleteClient(client.id)">Excluir</button>
             </td>

@@ -1,6 +1,4 @@
 import { Request, Response } from "express";
-import validateCreateClientBody from "../schema/validateCreateClientBody";
-import validateGetId from "../schema/validateGetId";
 import ClientService from "../services/ClientService";
 
 export default class ClientController {
@@ -11,12 +9,6 @@ export default class ClientController {
   }
 
   async create(req: Request, res: Response): Promise<void> {
-    const bodyValidated = validateCreateClientBody(req.body);
-    if (bodyValidated.error) {
-      res.status(400).json({ message: bodyValidated.message });
-      return;
-    }
-
     const result = await this.clientService.create(req.body);
     res.status(result.status).json({
       message: result.message,
@@ -26,19 +18,6 @@ export default class ClientController {
 
   async update(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
-
-    const bodyValidated = validateCreateClientBody(req.body);
-    const validatedIdQuery = validateGetId(req.params);
-
-    if (bodyValidated.error) {
-      res.status(400).json({ message: bodyValidated.message });
-      return;
-    }
-
-    if (validatedIdQuery.error) {
-      res.status(400).json({ message: validatedIdQuery.message });
-      return;
-    }
 
     const result = await this.clientService.update(Number(id), req.body);
     res.status(result.status).json({
@@ -50,12 +29,6 @@ export default class ClientController {
   async delete(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
 
-    const validatedIdQuery = validateGetId(req.params);
-    if (validatedIdQuery.error) {
-      res.status(400).json({ message: validatedIdQuery.message });
-      return;
-    }
-
     const result = await this.clientService.delete(Number(id));
     res.status(result.status).json({
       message: result.message,
@@ -65,12 +38,6 @@ export default class ClientController {
 
   async findOne(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
-
-    const validatedIdQuery = validateGetId(req.params);
-    if (validatedIdQuery.error) {
-      res.status(400).json({ message: validatedIdQuery.message });
-      return;
-    }
 
     const result = await this.clientService.findById(Number(id));
     res.status(result.status).json({

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.15
+> Correção do backend e adaptando o projeto para deploy
+- Corrigido o problema do .bind() das rotas
+- Alterando a porta para 1000 para rodar no render
+- Alterando as rotas da API para /api
+
 ## 1.0.14
 > Corrigindo o nome das controllers
 

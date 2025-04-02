@@ -2,11 +2,11 @@
 FROM node:18 AS backend-build
 WORKDIR /app
 
-# Copiar o package.json do backend e instalar as dependências
+# Copiar apenas o package.json e instalar dependências para otimizar cache
 COPY backend/package*.json ./backend/
 RUN cd backend && yarn install --frozen-lockfile
 
-# Copiar o código do backend para dentro da imagem
+# Copiar o restante do código do backend
 COPY backend ./backend/
 
 # Construir o backend
@@ -17,11 +17,11 @@ RUN yarn build
 FROM node:18 AS frontend-build
 WORKDIR /app
 
-# Copiar o package.json do frontend e instalar as dependências
+# Copiar apenas o package.json e instalar dependências
 COPY frontend/package*.json ./frontend/
 RUN cd frontend && yarn install --frozen-lockfile
 
-# Copiar o código do frontend para dentro da imagem
+# Copiar o restante do código do frontend
 COPY frontend ./frontend/
 
 # Construir o frontend
@@ -30,7 +30,6 @@ RUN yarn build
 
 # Etapa final: Nginx + Backend
 FROM nginx:alpine
-
 # Instalar Yarn no Alpine
 RUN apk add --no-cache nodejs npm && npm install -g yarn
 
@@ -41,11 +40,12 @@ COPY --from=frontend-build /app/frontend/dist /usr/share/nginx/html
 WORKDIR /app
 COPY --from=backend-build /app/backend /app/backend
 
-# Expor as portas para o Nginx (frontend) e o backend
+# Expor a porta correta (Render só permite 1 porta pública)
 EXPOSE 80
 EXPOSE 10000
 
+# Copiar a configuração do Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Iniciar o backend e o Nginx
-CMD ["sh", "-c", "cd /app/backend && yarn start:prod & nginx -g 'daemon off;'"]
+# Iniciar o backend corretamente (Render define a porta na variável PORT)
+CMD ["sh", "-c", "cd /app/backend && yarn start:prod"]

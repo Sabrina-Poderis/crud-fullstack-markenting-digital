@@ -6,12 +6,16 @@ import sequelize from "./config/sequelize";
 import UserRoutes from "./routes/UserRoutes";
 import ClientRoutes from "./routes/ClientRoutes";
 import ProjectRoutes from "./routes/ProjectRoutes";
+import { setupSwagger } from "./config/swagger";
 
 const PORT = env.PORT;
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+setupSwagger(app);
+
 app.use("/api/user", UserRoutes);
 app.use("/api/clients", ClientRoutes);
 app.use("/api/projects", ProjectRoutes);

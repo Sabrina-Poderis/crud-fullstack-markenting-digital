@@ -10,6 +10,7 @@ const env = {
   DB_PASSWORD: process.env.DB_PASSWORD,
   DB_NAME: process.env.DB_NAME,
   JWT_SECRET_KEY: process.env.JWT_SECRET_KEY || "",
+  VITE_API_URL: process.env.VITE_API_URL,
 };
 
 export default env;
